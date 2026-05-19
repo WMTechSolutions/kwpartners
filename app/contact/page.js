@@ -54,8 +54,7 @@ export default function Contact() {
                       <div>
                         <div style={{fontSize:'11px',fontWeight:'700',letterSpacing:'0.08em',textTransform:'uppercase',color:'var(--text-muted)',marginBottom:'3px'}}>{item.label}</div>
                         {item.href
-                          ? <a href={item.href} style={{fontSize:'15px',color:'var(--white)',transition:'color 0.2s'}}
-                              onMouseOver={e=>e.target.style.color='var(--red)'} onMouseOut={e=>e.target.style.color='var(--white)'}>{item.val}</a>
+                          ? <a href={item.href} className="contact-info-link">{item.val}</a>
                           : <p style={{fontSize:'15px',color:'var(--white)'}}>{item.val}</p>
                         }
                       </div>

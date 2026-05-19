@@ -52,10 +52,7 @@ export default function Vendors() {
                   <div className="alliance-name">{a.name}</div>
                   <div className="alliance-contact">
                     <strong>{a.contact}</strong>
-                    <a href={`tel:${a.phone.replace(/\D/g,'')}`} style={{color:'var(--text-muted)',transition:'color 0.2s'}}
-                      onMouseOver={e=>e.target.style.color='white'} onMouseOut={e=>e.target.style.color='var(--text-muted)'}>
-                      {a.phone}
-                    </a>
+                    <a href={`tel:${a.phone.replace(/\D/g,'')}`} className="alliance-phone">{a.phone}</a>
                   </div>
                 </div>
               ))}

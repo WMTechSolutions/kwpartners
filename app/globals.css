@@ -503,6 +503,10 @@ h1, h2, h3, h4 {
 .alliance-name { font-size: 20px; font-weight: 700; margin-bottom: 12px; }
 .alliance-contact { font-size: 14px; color: var(--text-muted); }
 .alliance-contact strong { color: var(--white); display: block; margin-bottom: 2px; }
+.alliance-phone { color: var(--text-muted); transition: color 0.2s; }
+.alliance-phone:hover { color: var(--white); }
+.contact-info-link { font-size: 15px; color: var(--white); transition: color 0.2s; }
+.contact-info-link:hover { color: var(--red); }
 .categories-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
