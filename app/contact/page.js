@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import { submitContact } from './actions'
 
 export default function Contact() {
   const [status, setStatus] = useState('idle')
@@ -10,11 +11,7 @@ export default function Contact() {
     e.preventDefault()
     setStatus('submitting')
     try {
-      const res = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-        method: 'POST',
-        body: new FormData(e.target),
-        headers: { Accept: 'application/json' },
-      })
+      const res = await submitContact(new FormData(e.target))
       setStatus(res.ok ? 'success' : 'error')
     } catch { setStatus('error') }
   }

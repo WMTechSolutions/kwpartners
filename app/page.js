@@ -1,14 +1,9 @@
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
+import EventCard from './components/EventCard'
+import { upcomingEvents } from '../lib/data'
 
-const events = [
-  { title: 'Digital Storefront Training', date: 'May 20', time: '10:00 AM', location: 'Zoom', category: 'Training', rsvp: '#' },
-  { title: "Men's Networking Group", date: 'May 21', time: '6:00 PM', location: 'Local Brewery', category: 'Networking', rsvp: '#' },
-  { title: 'Design / Canva Workshop', date: 'May 27', time: '2:00 PM', location: 'Zoom', category: 'Training', rsvp: '#' },
-  { title: 'Real Estate Career Orientation', date: 'May 27', time: '5:30 PM', location: 'Woodstock Office', category: 'Orientation', rsvp: '#' },
-  { title: 'Credit Fundamentals Course', date: 'May 28', time: '10:00 AM', location: 'Zoom', category: '3 CE Credits · Free', rsvp: '#' },
-  { title: 'Contract Training Session', date: 'Jun 3', time: '9:00 AM', location: 'Canton Office', category: 'Training', rsvp: '#' },
-]
+export const revalidate = 60
 
 const quickActions = [
   { icon: '🔍', title: 'Search Properties', desc: 'Browse available listings in the Cherokee County area.', href: 'https://kwcherokee.kw.com/search', label: 'Search Now' },
@@ -16,7 +11,8 @@ const quickActions = [
   { icon: '🎯', title: 'Opportunity Agent', desc: 'Register to become an Opportunity Agent and grow your business.', href: '/portal', label: 'Learn More' },
 ]
 
-export default function Home() {
+export default async function Home() {
+  const events = await upcomingEvents(6)
   return (
     <>
       <Navbar />
@@ -64,23 +60,10 @@ export default function Home() {
             <span className="section-label">What's Coming Up</span>
             <h2 className="section-title">Upcoming Events & Classes</h2>
             <p className="section-subtitle">Stay connected with training sessions, networking events, and career opportunities.</p>
-            <div className="events-grid">
-              {events.map((e, i) => (
-                <div key={i} className="event-card">
-                  <div className="event-card-bar" />
-                  <div className="event-card-body">
-                    <div className="event-date">{e.category}</div>
-                    <h3 className="event-title">{e.title}</h3>
-                    <div className="event-meta">
-                      <span>📅 {e.date}</span>
-                      <span>🕐 {e.time}</span>
-                      <span>📍 {e.location}</span>
-                    </div>
-                    <a href={e.rsvp} className="event-rsvp">RSVP Now</a>
-                  </div>
-                </div>
-              ))}
-            </div>
+            {events.length === 0
+              ? <p className="section-subtitle">No upcoming events right now. Check back soon.</p>
+              : <div className="events-grid">{events.map(e => <EventCard key={e.id} event={e} />)}</div>}
+            <a href="/events" className="btn btn-outline-red" style={{ marginTop: '24px' }}>All Events</a>
           </div>
         </section>
 

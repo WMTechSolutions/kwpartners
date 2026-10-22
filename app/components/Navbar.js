@@ -27,6 +27,7 @@ export default function Navbar() {
         <div className="nav-links">
           <a href="/search-properties" className="nav-link">Search Properties</a>
           <a href="/portal" className="nav-link nav-link-portal">Agent Portal</a>
+          <a href="/events" className="nav-link">Events</a>
           <a href="/about" className="nav-link">About Us</a>
           <a href="/vendors" className="nav-link">Our Vendors</a>
           <a href="/locations" className="nav-link">Locations</a>
@@ -48,6 +49,7 @@ export default function Navbar() {
       <div className={`mobile-menu${open ? ' mobile-menu-open' : ''}`}>
         <a href="/search-properties" className="mobile-link" onClick={close}>Search Properties</a>
         <a href="/portal" className="mobile-link mobile-link-red" onClick={close}>Agent Portal</a>
+        <a href="/events" className="mobile-link" onClick={close}>Events</a>
         <a href="/about" className="mobile-link" onClick={close}>About Us</a>
         <a href="/vendors" className="mobile-link" onClick={close}>Our Vendors</a>
         <a href="/locations" className="mobile-link" onClick={close}>Locations</a>

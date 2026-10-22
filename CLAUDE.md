@@ -7,10 +7,9 @@
 - **Goal:** Replace Wix ($300–435/yr) with custom Next.js at $0/month
 
 ## Git & Deployment
-- Separate project from wmtechsolutions
-- Push command: `cd "C:\Users\ASTT\Documents\Claud Code\kwpartners" && git add . && git commit -m "..." && git push`
+- Repo: `WMTechSolutions/kwpartners`, local at `c:\Users\ASTT\dev\wmtechsolutions\kwpartners`
 - Auto-deploy on Vercel on every push
-- **Always auto-push after every change — no need to ask**
+- Full task list: `docs/PUNCHLIST.md`
 
 ## Tech Stack
 - **Framework:** Next.js 14 (App Router)
@@ -47,8 +46,9 @@ public/                  — place KW logo here as logo.png
 
 ## Build Phases
 - **Phase 1** ✅ Public site (Home, About, Vendors, Locations, Contact)
-- **Phase 2** 🔲 Auth (Clerk.dev) + Agent Portal + Member approval queue
-- **Phase 3** 🔲 Conference room booking + Supabase + Resend email confirmations
+- **Phase 2** 🟡 Auth (Clerk) + Agent Portal + approval queue: coded, needs Clerk keys to test
+- Architecture: member routes live in `app/(members)/` (only place Clerk loads); data via Supabase service-role key in `lib/` (server only); roles in Clerk publicMetadata + `ADMIN_EMAILS`; all times Eastern via `lib/time.js`. Payments deferred (Susan Mortimer sets up processor).
+- **Phase 3** 🔲 Events + RSVP, conference room booking, forms, Supabase + Resend email (see docs/PUNCHLIST.md)
 - **Phase 4** 🔲 Admin panel (approve members, manage bookings, vendors, files, videos)
 
 ## Conference Rooms (Phase 3)
