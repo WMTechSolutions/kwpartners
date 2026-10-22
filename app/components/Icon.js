@@ -19,6 +19,7 @@ const paths = {
   shield: <><path d="M12 3l8 3v6c0 4.5-3.2 8-8 9-4.8-1-8-4.5-8-9V6z" /><path d="m9 12 2 2 4-4" /></>,
   building: <><rect x="5" y="3" width="10" height="18" rx="1" /><path d="M15 9h4v12h-4M9 7h2M9 11h2M9 15h2" /></>,
   arrow: <path d="M5 12h14M13 6l6 6-6 6" />,
+  chevron: <path d="m6 9 6 6 6-6" />,
   hourglass: <path d="M6 3h12M6 21h12M7 3c0 5 5 6 5 9s-5 4-5 9M17 3c0 5-5 6-5 9s5 4 5 9" />,
   lock: <><rect x="5" y="11" width="14" height="10" rx="2" /><path d="M8 11V8a4 4 0 0 1 8 0v3" /></>,
   sun: <><circle cx="12" cy="12" r="4" /><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4" /></>,

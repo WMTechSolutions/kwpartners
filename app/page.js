@@ -17,7 +17,6 @@ export default async function Home() {
         <section className="hero">
           <div className="hero-bg" />
           <div className="container hero-content">
-            <div className="hero-eyebrow">Keller Williams Realty Partners</div>
             <h1 className="hero-title">
               Interested in a Career<br />
               in <span>Real Estate?</span>
