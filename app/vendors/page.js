@@ -1,5 +1,6 @@
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import Icon from '../components/Icon'
 
 const alliance = [
   { type: 'Legal Services', name: 'Thomas and Brown', contact: 'Kari Green', phone: '770-591-5200' },
@@ -9,16 +10,16 @@ const alliance = [
 ]
 
 const categories = [
-  { icon: '🏗️', name: 'Construction / Renovation / Restoration', desc: 'Contractors, builders, and restoration specialists' },
-  { icon: '📋', name: 'Transaction Management', desc: 'TC services and transaction coordinators' },
-  { icon: '📦', name: 'Estate Sales / Moving / Storage', desc: 'Moving companies, storage, and estate services' },
-  { icon: '🔧', name: 'Home Maintenance', desc: 'Plumbers, electricians, HVAC, and more' },
-  { icon: '📸', name: 'Marketing / Photography', desc: 'Real estate photographers and marketing pros' },
-  { icon: '🧹', name: 'Cleaning / Junk Removal', desc: 'Cleaning services and junk hauling' },
-  { icon: '📚', name: 'Education', desc: 'CE courses, coaching, and training resources' },
-  { icon: '💰', name: 'Financial / Legal', desc: 'CPAs, attorneys, and financial advisors' },
-  { icon: '🏥', name: 'Health Insurance / Inspection', desc: 'Home inspectors and health insurance providers' },
-  { icon: '🏘️', name: 'Property Management', desc: 'Residential and commercial property managers' },
+  { icon: 'construction', name: 'Construction / Renovation / Restoration', desc: 'Contractors, builders, and restoration specialists' },
+  { icon: 'clipboard', name: 'Transaction Management', desc: 'TC services and transaction coordinators' },
+  { icon: 'box', name: 'Estate Sales / Moving / Storage', desc: 'Moving companies, storage, and estate services' },
+  { icon: 'wrench', name: 'Home Maintenance', desc: 'Plumbers, electricians, HVAC, and more' },
+  { icon: 'camera', name: 'Marketing / Photography', desc: 'Real estate photographers and marketing pros' },
+  { icon: 'sparkles', name: 'Cleaning / Junk Removal', desc: 'Cleaning services and junk hauling' },
+  { icon: 'book', name: 'Education', desc: 'CE courses, coaching, and training resources' },
+  { icon: 'dollar', name: 'Financial / Legal', desc: 'CPAs, attorneys, and financial advisors' },
+  { icon: 'shield', name: 'Health Insurance / Inspection', desc: 'Home inspectors and health insurance providers' },
+  { icon: 'building', name: 'Property Management', desc: 'Residential and commercial property managers' },
 ]
 
 export const metadata = { title: 'Our Vendors | KW Partners' }
@@ -69,7 +70,7 @@ export default function Vendors() {
             <div className="categories-grid">
               {categories.map((c, i) => (
                 <div key={i} className="category-card">
-                  <div className="category-icon">{c.icon}</div>
+                  <div className="icon-tile"><Icon name={c.icon} /></div>
                   <div>
                     <h3>{c.name}</h3>
                     <p>{c.desc}</p>

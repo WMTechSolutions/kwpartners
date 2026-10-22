@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import Navbar from '../components/Navbar'
 import Footer from '../components/Footer'
+import Icon from '../components/Icon'
 import { submitContact } from './actions'
 
 export default function Contact() {
@@ -38,16 +39,16 @@ export default function Contact() {
 
                 <div style={{display:'flex',flexDirection:'column',gap:'24px'}}>
                   {[
-                    { icon:'📍', label:'Woodstock', val:'722 Stonecroft Lane, Woodstock, GA 30188' },
-                    { icon:'📍', label:'Canton', val:'149 Reinhardt College Pkwy Ste 3, Canton, GA 30114' },
-                    { icon:'📞', label:'Woodstock Phone', val:'678-494-0644', href:'tel:6784940644' },
-                    { icon:'📞', label:'Canton Phone', val:'678-493-2100', href:'tel:6784932100' },
-                    { icon:'✉', label:'Woodstock Email', val:'Frontdesk406@kw.com', href:'mailto:Frontdesk406@kw.com' },
-                    { icon:'✉', label:'Canton Email', val:'frontdesk@kwcanton.com', href:'mailto:frontdesk@kwcanton.com' },
-                    { icon:'🕐', label:'Office Hours', val:'Mon–Fri: 9:00 AM – 5:00 PM' },
+                    { icon:'pin', label:'Woodstock', val:'722 Stonecroft Lane, Woodstock, GA 30188' },
+                    { icon:'pin', label:'Canton', val:'149 Reinhardt College Pkwy Ste 3, Canton, GA 30114' },
+                    { icon:'phone', label:'Woodstock Phone', val:'678-494-0644', href:'tel:6784940644' },
+                    { icon:'phone', label:'Canton Phone', val:'678-493-2100', href:'tel:6784932100' },
+                    { icon:'mail', label:'Woodstock Email', val:'Frontdesk406@kw.com', href:'mailto:Frontdesk406@kw.com' },
+                    { icon:'mail', label:'Canton Email', val:'frontdesk@kwcanton.com', href:'mailto:frontdesk@kwcanton.com' },
+                    { icon:'clock', label:'Office Hours', val:'Mon–Fri: 9:00 AM – 5:00 PM' },
                   ].map((item, i) => (
                     <div key={i} style={{display:'flex',gap:'14px',alignItems:'flex-start'}}>
-                      <div style={{fontSize:'20px',flexShrink:0,marginTop:'2px'}}>{item.icon}</div>
+                      <div className="location-detail-icon"><Icon name={item.icon} /></div>
                       <div>
                         <div style={{fontSize:'11px',fontWeight:'700',letterSpacing:'0.08em',textTransform:'uppercase',color:'var(--text-muted)',marginBottom:'3px'}}>{item.label}</div>
                         {item.href

@@ -1,6 +1,7 @@
 import { redirect } from 'next/navigation'
 import { SignOutButton } from '@clerk/nextjs'
 import Navbar from '../../components/Navbar'
+import Icon from '../../components/Icon'
 import { getViewer } from '../../../lib/auth'
 
 export const metadata = { title: 'Pending Approval | KW Partners' }
@@ -16,7 +17,7 @@ export default async function PendingApproval() {
       <main>
         <div className="portal-stub">
           <div className="portal-stub-inner">
-            <div className="portal-stub-icon">⏳</div>
+            <div className="portal-stub-icon"><Icon name="hourglass" /></div>
             <h2>{v.denied ? 'Access not approved' : 'Waiting for approval'}</h2>
             <p style={{ marginBottom: '32px' }}>
               {v.denied

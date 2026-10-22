@@ -1,14 +1,15 @@
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import EventCard from './components/EventCard'
+import Icon from './components/Icon'
 import { upcomingEvents } from '../lib/data'
 
 export const revalidate = 60
 
 const quickActions = [
-  { icon: '🔍', title: 'Search Properties', desc: 'Browse available listings in the Cherokee County area.', href: 'https://kwcherokee.kw.com/search', label: 'Search Now' },
-  { icon: '🏠', title: 'Open House Dibs', desc: 'Book and share your open houses with the OH Dibs platform.', href: 'https://ohdibs.com', label: 'Check Out OH Dibs' },
-  { icon: '🎯', title: 'Opportunity Agent', desc: 'Register to become an Opportunity Agent and grow your business.', href: '/portal', label: 'Learn More' },
+  { icon: 'search', title: 'Search Properties', desc: 'Browse available listings in the Cherokee County area.', href: 'https://kwcherokee.kw.com/search', label: 'Search Now' },
+  { icon: 'home', title: 'Open House Dibs', desc: 'Book and share your open houses with the OH Dibs platform.', href: 'https://kwcherokee.ohdibs.com/', label: 'Check Out OH Dibs' },
+  { icon: 'target', title: 'Opportunity Agent', desc: 'Register to become an Opportunity Agent and grow your business.', href: '/portal', label: 'Learn More' },
 ]
 
 export default async function Home() {
@@ -35,6 +36,11 @@ export default async function Home() {
               <a href="/contact" className="btn btn-red btn-lg">Learn More</a>
               <a href="/about" className="btn btn-outline btn-lg">Meet the Team</a>
             </div>
+            <div className="hero-meta">
+              <span><Icon name="pin" /> Woodstock &amp; Canton, GA</span>
+              <span><Icon name="calendar" /> Weekly training &amp; events</span>
+              <span><Icon name="building" /> Independently owned &amp; operated</span>
+            </div>
           </div>
         </section>
 
@@ -44,10 +50,10 @@ export default async function Home() {
             <div className="quick-actions-grid">
               {quickActions.map((q, i) => (
                 <a key={i} href={q.href} className="quick-card" target={q.href.startsWith('http') ? '_blank' : undefined} rel={q.href.startsWith('http') ? 'noopener noreferrer' : undefined}>
-                  <div className="quick-card-icon">{q.icon}</div>
+                  <div className="icon-tile"><Icon name={q.icon} /></div>
                   <h3>{q.title}</h3>
                   <p>{q.desc}</p>
-                  <span className="btn btn-outline-red" style={{fontSize:'12px',padding:'8px 20px'}}>{q.label}</span>
+                  <span className="btn btn-outline-red">{q.label} <Icon name="arrow" /></span>
                 </a>
               ))}
             </div>
@@ -61,7 +67,7 @@ export default async function Home() {
             <h2 className="section-title">Upcoming Events & Classes</h2>
             <p className="section-subtitle">Stay connected with training sessions, networking events, and career opportunities.</p>
             {events.length === 0
-              ? <p className="section-subtitle">No upcoming events right now. Check back soon.</p>
+              ? <p className="section-subtitle" style={{ marginTop: '32px' }}>No upcoming events right now. Check back soon.</p>
               : <div className="events-grid">{events.map(e => <EventCard key={e.id} event={e} />)}</div>}
             <a href="/events" className="btn btn-outline-red" style={{ marginTop: '24px' }}>All Events</a>
           </div>
