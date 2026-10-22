@@ -20,7 +20,12 @@ function External({ href, children, className }) {
 export default async function Portal() {
   const viewer = await requireApproved()
   const [resources, videos] = await Promise.all([resourcesBySection(), videosByCategory()])
-  const quick = resources.quick ?? []
+  // Built-in agent tools (also removed from the public home page); staff can add more in Admin.
+  const quick = [
+    { id: 'oh-dibs', title: 'OH Dibs', url: 'https://kwcherokee.ohdibs.com/' },
+    { id: 'opportunity-agent', title: 'Opportunity Agent', url: 'https://docs.google.com/document/d/12Y0tlqhjwiIF3rCCkX5mh9Ux2kHgwudz2rFM2Jmv19U/edit?usp=sharing' },
+    ...(resources.quick ?? []),
+  ]
   const categories = Object.keys(videos)
 
   return (

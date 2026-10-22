@@ -6,12 +6,6 @@ import { upcomingEvents } from '../lib/data'
 
 export const revalidate = 60
 
-const quickActions = [
-  { icon: 'search', title: 'Search Properties', desc: 'Browse available listings in the Cherokee County area.', href: 'https://kwcherokee.kw.com/search', label: 'Search Now' },
-  { icon: 'home', title: 'Open House Dibs', desc: 'Book and share your open houses with the OH Dibs platform.', href: 'https://kwcherokee.ohdibs.com/', label: 'Check Out OH Dibs' },
-  { icon: 'target', title: 'Opportunity Agent', desc: 'Register to become an Opportunity Agent and grow your business.', href: '/portal', label: 'Learn More' },
-]
-
 export default async function Home() {
   const events = await upcomingEvents(6)
   return (
@@ -34,7 +28,7 @@ export default async function Home() {
             </p>
             <div className="hero-actions">
               <a href="/contact" className="btn btn-red btn-lg">Learn More</a>
-              <a href="/about" className="btn btn-outline btn-lg">Meet the Team</a>
+              <a href="#events" className="btn btn-outline btn-lg">See Upcoming Trainings</a>
             </div>
             <div className="hero-meta">
               <span><Icon name="pin" /> Woodstock &amp; Canton, GA</span>
@@ -44,28 +38,12 @@ export default async function Home() {
           </div>
         </section>
 
-        {/* Quick Actions */}
-        <div className="quick-actions">
-          <div className="container">
-            <div className="quick-actions-grid">
-              {quickActions.map((q, i) => (
-                <a key={i} href={q.href} className="quick-card" target={q.href.startsWith('http') ? '_blank' : undefined} rel={q.href.startsWith('http') ? 'noopener noreferrer' : undefined}>
-                  <div className="icon-tile"><Icon name={q.icon} /></div>
-                  <h3>{q.title}</h3>
-                  <p>{q.desc}</p>
-                  <span className="btn btn-outline-red">{q.label} <Icon name="arrow" /></span>
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
-
         {/* Events */}
-        <section className="section events-section">
+        <section className="section events-section" id="events">
           <div className="container">
             <span className="section-label">What's Coming Up</span>
-            <h2 className="section-title">Upcoming Events & Classes</h2>
-            <p className="section-subtitle">Stay connected with training sessions, networking events, and career opportunities.</p>
+            <h2 className="section-title">Upcoming Trainings & Events</h2>
+            <p className="section-subtitle">Classes, orientations and networking events. RSVP to save your seat.</p>
             {events.length === 0
               ? <p className="section-subtitle" style={{ marginTop: '32px' }}>No upcoming events right now. Check back soon.</p>
               : <div className="events-grid">{events.map(e => <EventCard key={e.id} event={e} />)}</div>}

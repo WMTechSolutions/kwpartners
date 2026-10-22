@@ -3,8 +3,10 @@ import { useState, useEffect } from 'react'
 import Logo from './Logo'
 import ThemeToggle from './ThemeToggle'
 
+const SEARCH_URL = 'https://kwcherokee.kw.com/search'
+
 const links = [
-  ['/search-properties', 'Search Properties'],
+  [SEARCH_URL, 'Search Properties'],
   ['/portal', 'Agent Portal', true],
   ['/events', 'Events'],
   ['/about', 'About Us'],
@@ -35,7 +37,7 @@ export default function Navbar() {
 
         <div className="nav-links">
           {links.map(([href, label, portal]) => (
-            <a key={href} href={href} className={`nav-link${portal ? ' nav-link-portal' : ''}`}>{label}</a>
+            <a key={href} href={href} className={`nav-link${portal ? ' nav-link-portal' : ''}`} {...(href.startsWith('http') && { target: '_blank', rel: 'noopener noreferrer' })}>{label}</a>
           ))}
         </div>
 
@@ -50,7 +52,7 @@ export default function Navbar() {
 
       <div className={`mobile-menu${open ? ' mobile-menu-open' : ''}`}>
         {links.map(([href, label, portal]) => (
-          <a key={href} href={href} className={`mobile-link${portal ? ' mobile-link-red' : ''}`} onClick={close}>{label}</a>
+          <a key={href} href={href} className={`mobile-link${portal ? ' mobile-link-red' : ''}`} onClick={close} {...(href.startsWith('http') && { target: '_blank', rel: 'noopener noreferrer' })}>{label}</a>
         ))}
         <a href="/sign-in" className="mobile-link" onClick={close}>Log In</a>
       </div>
